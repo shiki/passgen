@@ -1,6 +1,7 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {toggleCheck, incNumber, decNumber} from "../actions";
+import { Link } from 'react-router'
 
 class Home extends React.Component {
   render() {
@@ -20,6 +21,9 @@ class Home extends React.Component {
             &nbsp;{value}&nbsp;
             <button type={"button"} onClick={props.onIncrease}>+</button>
           </div>
+          <p>
+            <Link to="/about">About</Link>
+          </p>
         </div>
       </div>
     );
