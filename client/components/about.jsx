@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 class About extends React.Component {
   render() {
     return (
-      <div>Am I working?</div>
+      <div>Am I working? Yes?</div>
     )
   }
 }
