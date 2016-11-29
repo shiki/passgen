@@ -12,6 +12,9 @@ function createReduxStore(req, match) { // eslint-disable-line
   const initialState = {
     checkBox: {checked: false},
     number: {value: 999}
+    // generator: {
+    //   password: 'password from index-view.jsx'
+    // }
   };
 
   const store = createStore(rootReducer, initialState);

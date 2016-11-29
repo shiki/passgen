@@ -6,7 +6,8 @@ import React from "react";
 import {render} from "react-dom";
 import {routes} from "./routes";
 import { Router, browserHistory } from "react-router";
-import { createStore, compose } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
+import thunk from 'redux-thunk'
 import {Provider} from "react-redux";
 import "./styles/base.css";
 import rootReducer from "./reducers";
@@ -22,6 +23,7 @@ import DevTools from "../client/devtools";
 const enhancer = compose(
   // Add middlewares you want to use in development:
   // applyMiddleware(d1, d2, d3),
+  applyMiddleware(thunk),
   DevTools.instrument()
 );
 

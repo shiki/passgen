@@ -1,5 +1,7 @@
 import {combineReducers} from "redux";
 
+import generator from '../routes/home/reducers'
+
 const checkBox = (store, action) => {
   if (action.type === "TOGGLE_CHECK") {
     return {
@@ -26,5 +28,6 @@ const number = (store, action) => {
 
 export default combineReducers({
   checkBox,
-  number
+  number,
+  generator,
 });
