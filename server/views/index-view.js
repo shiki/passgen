@@ -4,9 +4,10 @@
 
 import ReduxRouterEngine from "electrode-redux-router-engine";
 import {routes} from "../../client/routes";
-import {createStore} from "redux";
+import {createStore, compose, applyMiddleware} from "redux";
 import rootReducer from "../../client/reducers";
 import Promise from "bluebird";
+import thunk from 'redux-thunk'
 
 function createReduxStore(req, match) { // eslint-disable-line
   const initialState = {
@@ -17,8 +18,17 @@ function createReduxStore(req, match) { // eslint-disable-line
     // }
   };
 
-  const store = createStore(rootReducer, initialState);
-  return Promise.resolve(store);
+  const enhancer = compose(
+    applyMiddleware(thunk)
+  )
+
+  const store = createStore(rootReducer, initialState, enhancer);
+
+  return Promise.all([
+    Promise.resolve({})
+  ]).then(() => {
+    return store;
+  });
 }
 
 //

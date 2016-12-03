@@ -5,7 +5,7 @@ import {
 } from './constants';
 
 const defaultState = {
-  password: 'a-generated-password',
+  password: 'correct horse battery staple',
 };
 
 export default function generator(state = defaultState, action) {

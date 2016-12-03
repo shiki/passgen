@@ -23,20 +23,6 @@ export function generatePassword() {
       .catch((err) => {
         console.error('got error', err)
       })
-
-
-    // setTimeout(() => {
-    //   const password =
-    //     Math.random().toString(36).substr(7, 4) + 
-    //     ' ' + 
-    //     Math.random().toString(36).substr(7, 4);
-    //   dispatch({
-    //     type: GENERATE_PASSWORD_SUCCESS,
-    //     payload: {
-    //       value: password
-    //     }
-    //   })
-    // }, 3000)
   }
 }
 
