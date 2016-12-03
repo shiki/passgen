@@ -21,6 +21,9 @@
           }
         }
       }
+    },
+    "friends": {
+      "module": "./server/plugins/password"
     }
   }
 }
