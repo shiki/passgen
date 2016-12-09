@@ -26,7 +26,7 @@ class Generator extends React.Component {
           onFocus={this.onTextFieldClick.bind(this)} 
           onChange={this.onTextFieldChange.bind(this)}
           />
-        <input type="button" value="Generate" onClick={this.props.generatePassword} />
+        <input type="button" disabled={this.props.isGenerating} value="Generate" onClick={this.props.generatePassword} />
       </div>
     );
   }
@@ -34,11 +34,13 @@ class Generator extends React.Component {
 
 Generator.propTypes = {
   generatePassword: PropTypes.func.isRequired,
-  updatePassword: PropTypes.func.isRequired
+  updatePassword: PropTypes.func.isRequired,
+  isGenerating: PropTypes.bool.isRequired
 };
 
 const mapState = (state) => ({
   password: state.generator.password,
+  isGenerating: state.generator.isGenerating,
 });
 
 const mapDispatch = {
