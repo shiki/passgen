@@ -13,6 +13,10 @@ const defaultState = {
 export default function generator(state = defaultState, action) {
   switch (action.type) {
     case GENERATE_PASSWORD_START:
+      if (state.isGenerating) {
+        return state
+      }
+
       return {
         ...state, 
         isGenerating: true

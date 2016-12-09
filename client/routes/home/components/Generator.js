@@ -10,6 +10,10 @@ class Generator extends React.Component {
     }, 0);
   }
 
+  componentDidMount() {
+    this.props.generatePassword()
+  }
+
   onTextFieldChange(e) {
     console.log('textField changed to ', e.target.value);
     this.props.updatePassword(e.target.value);
@@ -26,7 +30,10 @@ class Generator extends React.Component {
           onFocus={this.onTextFieldClick.bind(this)} 
           onChange={this.onTextFieldChange.bind(this)}
           />
-        <input type="button" disabled={this.props.isGenerating} value="Generate" onClick={this.props.generatePassword} />
+        <input type="button" 
+          disabled={this.props.isGenerating}
+          value="Generate" 
+          onClick={this.props.generatePassword} />
       </div>
     );
   }
