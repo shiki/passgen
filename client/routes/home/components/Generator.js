@@ -26,6 +26,7 @@ class Generator extends React.Component {
         <p>{this.props.password}</p>
         <input ref="textfield" 
           type="text" 
+          disabled={this.props.isGenerating}
           value={this.props.password}
           onFocus={this.onTextFieldClick.bind(this)} 
           onChange={this.onTextFieldChange.bind(this)}
