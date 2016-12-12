@@ -1,5 +1,5 @@
-FROM node:4.5
-RUN npm i -g npm@3
+FROM node:7.0
+#RUN npm i -g npm@3
 EXPOSE 3000
 ENV DIR /usr/src/app
 RUN mkdir -p $DIR

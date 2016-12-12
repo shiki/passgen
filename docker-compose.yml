@@ -1,0 +1,24 @@
+# https://hub.docker.com/r/jwilder/nginx-proxy/
+# https://github.com/vincetse/docker-compose-zero-downtime-deployment
+version: '2'
+services: 
+  nginx-proxy: 
+    image: jwilder/nginx-proxy:0.5.0
+    ports:
+      - "8000:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+  app:
+    build: 
+      context: ./app
+    ports: 
+      - "3000"
+    environment: 
+      - VIRTUAL_HOST=localhost
+      - VIRTUAL_PORT=3000
+  app-a:
+    extends:
+      service: app
+  app-b:
+    extends:
+      service: app
