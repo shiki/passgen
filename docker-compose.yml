@@ -3,12 +3,14 @@
 version: '2'
 services: 
   nginx-proxy: 
+    container_name: nginx-proxy
     image: jwilder/nginx-proxy:0.5.0
     ports:
       - "8000:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-  app:
+  app-a:
+    container_name: passgen-app-a
     build: 
       context: ./app
     ports: 
@@ -16,9 +18,7 @@ services:
     environment: 
       - VIRTUAL_HOST=localhost
       - VIRTUAL_PORT=3000
-  app-a:
-    extends:
-      service: app
   app-b:
+    container_name: passgen-app-b
     extends:
-      service: app
+      service: app-a
