@@ -1,14 +1,23 @@
 'use strict';
 
+const spawn = require('child_process').spawnSync
+
+function generate() {
+  const result = spawn('xkcdpass')
+  if (result.status === 0) {
+    return result.stdout.toString().trim()
+  } else {
+    // TODO handle error
+    return ''
+  }
+}
+
 exports.register = (server, options, next) => {
   server.route({
     method: 'GET',
     path: '/password',
     handler: (request, reply) => {
-      const password =
-        Math.random().toString(36).substr(7, 4) + 
-        ' ' + 
-        Math.random().toString(36).substr(7, 4);
+      const password = generate()
       reply(null, JSON.stringify({password: password}));
     }
   });
