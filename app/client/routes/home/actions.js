@@ -5,6 +5,8 @@ import {
   UPDATE_PASSWORD
 } from './constants';
 
+require('isomorphic-fetch')
+
 export function generatePassword() {
   return (dispatch) => {
     dispatch({ type: GENERATE_PASSWORD_START })

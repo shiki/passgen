@@ -6,6 +6,7 @@ import ReduxRouterEngine from "electrode-redux-router-engine";
 import {routes} from "../../client/routes";
 import {createStore, compose, applyMiddleware} from "redux";
 import rootReducer from "../../client/reducers";
+
 import Promise from "bluebird";
 import thunk from 'redux-thunk'
 

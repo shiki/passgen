@@ -7,11 +7,12 @@ import {render} from "react-dom";
 import {routes} from "./routes";
 import { Router, browserHistory } from "react-router";
 import { createStore, compose, applyMiddleware } from "redux";
-import thunk from 'redux-thunk'
 import {Provider} from "react-redux";
+
 import "./styles/base.css";
 import rootReducer from "./reducers";
 
+import thunk from 'redux-thunk'
 import DevTools from "../client/devtools";
 
 //
