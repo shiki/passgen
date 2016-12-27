@@ -1,8 +1,8 @@
-'use strict';
+/*eslint-env node*/
 
 const spawn = require('child_process').spawnSync
 
-function generate() {
+const generate = function generate() {
   const result = spawn('xkcdpass')
   if (result.status === 0) {
     return result.stdout.toString().trim()
@@ -18,13 +18,13 @@ exports.register = (server, options, next) => {
     path: '/password',
     handler: (request, reply) => {
       const password = generate()
-      reply(null, JSON.stringify({password: password}));
-    }
-  });
-  next();
-};
+      reply(null, JSON.stringify({password}))
+    },
+  })
+  next()
+}
 
 exports.register.attributes = {
   name: 'getPassword',
-  version: '1.0.0'
+  version: '1.0.0',
 }

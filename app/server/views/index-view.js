@@ -10,26 +10,27 @@ import rootReducer from "../../client/reducers";
 import Promise from "bluebird";
 import thunk from 'redux-thunk'
 
-function createReduxStore(req, match) { // eslint-disable-line
+// eslint-disable-next-line no-unused-vars
+const createReduxStore = function createReduxStore(req, match) {
   const initialState = {
     checkBox: {checked: false},
     number: {value: 999}
     // generator: {
     //   password: 'password from index-view.jsx'
     // }
-  };
+  }
 
   const enhancer = compose(
     applyMiddleware(thunk)
   )
 
-  const store = createStore(rootReducer, initialState, enhancer);
+  const store = createStore(rootReducer, initialState, enhancer)
 
   return Promise.all([
     Promise.resolve({})
   ]).then(() => {
-    return store;
-  });
+    return store
+  })
 }
 
 //

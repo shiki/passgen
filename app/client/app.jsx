@@ -26,7 +26,7 @@ const enhancer = compose(
   // applyMiddleware(d1, d2, d3),
   applyMiddleware(thunk),
   DevTools.instrument()
-);
+)
 
 window.webappStart = () => {
   const initialState = window.__PRELOADED_STATE__;

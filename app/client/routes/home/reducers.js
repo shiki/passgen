@@ -2,44 +2,48 @@ import {
   GENERATE_PASSWORD_START,
   GENERATE_PASSWORD_SUCCESS,
   GENERATE_PASSWORD_ERROR,
-  UPDATE_PASSWORD 
-} from './constants';
+  UPDATE_PASSWORD
+} from './constants'
 
 const defaultState = {
   password: 'correct horse battery staple',
-  isGenerating: false
-};
+  isGenerating: false,
+}
 
 export default function generator(state = defaultState, action) {
   switch (action.type) {
-    case GENERATE_PASSWORD_START:
+    case GENERATE_PASSWORD_START: {
       if (state.isGenerating) {
         return state
       }
 
       return {
-        ...state, 
-        isGenerating: true
+        ...state,
+        isGenerating: true,
       }
-    case GENERATE_PASSWORD_SUCCESS:
+    }
+    case GENERATE_PASSWORD_SUCCESS: {
       const password = action.payload.value
       return {
         ...state,
         password,
-        isGenerating: false
+        isGenerating: false,
       }
-    case GENERATE_PASSWORD_ERROR:
+    }
+    case GENERATE_PASSWORD_ERROR: {
       return {
         ...state,
-        isGenerating: false
+        isGenerating: false,
       }
-    case UPDATE_PASSWORD:
+    }
+    case UPDATE_PASSWORD: {
       return {
         ...state,
-        password: action.payload.value
+        password: action.payload.value,
       }
+    }
     default: {
-      return state;
+      return state
     }
   }
 }

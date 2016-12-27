@@ -1,0 +1,14 @@
+{
+  "extends": "./node_modules/electrode-archetype-react-app/config/eslint/.eslintrc-react",
+  "rules": {
+    "semi": ["error", "never"],
+    "no-unreachable": "error",
+    "quotes": ["error", "single"],
+    "no-undef": "error",
+    "no-console": "off",
+    "indent": [2, 2, { "SwitchCase": 1, "VariableDeclarator": 1 }],
+    "no-magic-numbers": "off",
+    "comma-dangle": ["error", "always-multiline"],
+    "filenames/match-regex": "off"
+  }
+}

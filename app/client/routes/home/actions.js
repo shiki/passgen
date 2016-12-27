@@ -1,13 +1,15 @@
+/*eslint-env browser*/
+
 import {
   GENERATE_PASSWORD_START,
   GENERATE_PASSWORD_SUCCESS,
   GENERATE_PASSWORD_ERROR,
-  UPDATE_PASSWORD
-} from './constants';
+  UPDATE_PASSWORD,
+} from './constants'
 
 require('isomorphic-fetch')
 
-export function generatePassword() {
+export const generatePassword = function generatePassword() {
   return (dispatch) => {
     dispatch({ type: GENERATE_PASSWORD_START })
 
@@ -17,9 +19,7 @@ export function generatePassword() {
         const password = json.password
         dispatch({
           type: GENERATE_PASSWORD_SUCCESS,
-          payload: {
-            value: password
-          }
+          payload: { value: password },
         })
       })
       .catch((err) => {
@@ -28,10 +28,10 @@ export function generatePassword() {
   }
 }
 
-export function updatePassword(value) {
+export const updatePassword = function updatePassword(value) {
   return {
     type: UPDATE_PASSWORD,
-    payload: { value }
-  };
+    payload: { value },
+  }
 }
 
