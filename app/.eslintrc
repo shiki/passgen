@@ -9,6 +9,7 @@
     "indent": [2, 2, { "SwitchCase": 1, "VariableDeclarator": 1 }],
     "no-magic-numbers": "off",
     "comma-dangle": ["error", "always-multiline"],
-    "filenames/match-regex": "off"
+    "filenames/match-regex": "off",
+    "strict": "off"
   }
 }

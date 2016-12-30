@@ -1,4 +1,10 @@
-"use strict";
+/* eslint-env node */
+
+'use strict'
+
+// For Material UI
+// TODO This should not be "all". See http://www.material-ui.com/#/get-started/server-rendering
+global.navigator = {userAgent: 'all'}
 
 const SSRCaching = require("electrode-react-ssr-caching");
 
